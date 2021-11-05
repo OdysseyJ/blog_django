@@ -13,8 +13,3 @@ class PostViewSet(viewsets.ModelViewSet):
         IsAuthenticatedOrReadOnly,
         IsWriterOrReadOnly
     ]
-
-    def create(self, req):
-        print("########################## viewset")
-        print(req.__dict__)
-        super(PostViewSet, self).create(req)

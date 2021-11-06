@@ -1,0 +1,9 @@
+{
+    "production": {
+        "django_settings": "blog_crud.settings",
+        "profile_name": "seongwoon.root",
+        "project_name": "blog",
+        "runtime": "python3.9",
+        "s3_bucket": "seongwoon-blog"
+    }
+}

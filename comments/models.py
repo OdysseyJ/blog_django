@@ -13,7 +13,11 @@ class Comment(Model):
         related_name='comments'
     )
     # NOTE : only depth 1 allowed in serializer
-    children = models.ManyToManyField('self', symmetrical=False, related_name='parents') # noqa
+    children = models.ManyToManyField(
+        'self',
+        symmetrical=False,
+        related_name='parents'
+    )
     description = models.TextField('Description', blank=True)
     writer = models.ForeignKey(User, on_delete=models.deletion.CASCADE)
 

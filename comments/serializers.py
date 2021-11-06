@@ -10,7 +10,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['post_id', 'parent_id', 'description']
+        fields = ['id', 'post_id', 'parent_id', 'description']
         extra_kwargs = {
           'post_id': {'required': True, 'allow_null': False},
           'parent_id': {'required': False, 'allow_null': True},
@@ -27,7 +27,11 @@ class CommentSerializer(serializers.ModelSerializer):
         if not post:
             raise Exception("Wrong post_id")
 
-        comment = Comment.objects.create(description=description, post=post, writer=user) # noqa
+        comment = Comment.objects.create(
+            description=description,
+            post=post,
+            writer=user
+        )
         if parent_id:
             parent_comment = Comment.objects.filter(id=parent_id).first()
             if not parent_comment:

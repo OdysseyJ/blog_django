@@ -7,7 +7,7 @@ pytestmark = pytest.mark.django_db
 
 class TestPostEndpoints:
 
-    endpoint = '/api/posts/'
+    endpoint = '/posts/'
 
     def test_list_without_token(self, api_client, saved_dummy_posts):
         saved_dummy_posts(3)

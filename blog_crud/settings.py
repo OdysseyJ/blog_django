@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'blog_crud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
-        'USER': 'deploy',
-        'PASSWORD': 'xmfltwl12#',
-        'HOST': 'localhost',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'seongwoon',
+        'HOST': 'test-rds.czybpfa7oh1l.ap-northeast-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }

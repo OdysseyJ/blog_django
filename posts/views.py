@@ -1,10 +1,10 @@
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.pagination import CursorPagination
-from rest_framework import viewsets
 
 from posts.models import Post
 from posts.serializers import PostSerializer
 from blog_crud.permissions import IsWriterOrReadOnly
+from blog_crud.views import ModelViewSet
 
 
 class PostCursorPagination(CursorPagination):
@@ -13,7 +13,7 @@ class PostCursorPagination(CursorPagination):
     ordering = '-created_at'
 
 
-class PostViewSet(viewsets.ModelViewSet):
+class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pagination_class = PostCursorPagination

@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    depends_on:
+      - postgres
+    volumes:
+      - .:/usr/app
+    ports:
+      - 8000:8000
+    command: python manage.py runserver 0:8000
+
+  postgres:
+    image: postgres:9.6.23-alpine
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=seongwoon
+    ports:
+      - 5432:5432
